@@ -1,0 +1,95 @@
+/* Page Background */
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: #f4f7fc;
+}
+
+/* Registration Container */
+.register-page {
+    width: 500px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Main Heading */
+.register-page h1 {
+    text-align: center;
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+/* Sub Heading */
+.register-page h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form */
+.register-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input Fields */
+.register-page input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Input Focus */
+.register-page input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.4);
+}
+
+/* File Upload */
+.register-page input[type="file"] {
+    border: none;
+    padding: 8px 0;
+}
+
+/* Register Button */
+.register-page button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #2563eb;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button Hover */
+.register-page button:hover {
+    background-color: #1d4ed8;
+}
+
+/* Horizontal Line */
+.register-page hr {
+    margin: 25px 0;
+}
+
+/* Student Details */
+.register-page p {
+    font-size: 16px;
+    margin: 8px 0;
+    color: #444;
+}
+
+.register-page strong {
+    color: #000;
+}
