@@ -1,68 +1,68 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
-
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
 
-  const [password, setPassword] = useState("");
+  const handleChange = (e) => {
+    setLoginData({
+      ...loginData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  const handleLogin = (e) => {
-
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (email === "" || password === "") {
-
-      alert("Please enter email and password");
-
-      return;
-    }
-
-    alert("Login Successful");
+    alert("Login Successful!");
 
     navigate("/dashboard");
   };
 
   return (
-
     <div className="login-container">
+      <div className="login-box">
 
-      <form className="login-form" onSubmit={handleLogin}>
+        <h1>CareerConnect</h1>
+        <h2>Welcome Back</h2>
 
-        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
 
-        <input
-          type="email"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e)=>setEmail(e.target.value)}
-        />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={loginData.email}
+            onChange={handleChange}
+            required
+          />
 
-        <input
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e)=>setPassword(e.target.value)}
-        />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={loginData.password}
+            onChange={handleChange}
+            required
+          />
 
-        <button type="submit">
-          Login
-        </button>
+          <button type="submit">Login</button>
 
-        <button
-          type="button"
-          onClick={()=>navigate(-1)}
-        >
-          Cancel
-        </button>
+        </form>
 
-      </form>
+        <p className="register-link">
+          Don't have an account?
+          <Link to="/register"> Register</Link>
+        </p>
 
+      </div>
     </div>
-
   );
 }
 
