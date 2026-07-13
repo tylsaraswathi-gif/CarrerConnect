@@ -1,14 +1,27 @@
 import "./Dashboard.css";
+import Clock from "../../components/Clock/Clock";
 
 function Dashboard() {
   return (
     <div className="dashboard">
 
-      <h1>CareerConnect Dashboard</h1>
-      <p>Welcome back, Student 👋</p>
+      {/* Header */}
+      <div className="dashboard-header">
+        <div>
+          <h1>Placement Management System</h1>
+          <p>Welcome back, Placement Officer 👋</p>
+        </div>
+
+        <Clock />
+      </div>
 
       {/* Statistics Cards */}
       <div className="stats-container">
+
+        <div className="card">
+          <h3>250</h3>
+          <p>Total Students</p>
+        </div>
 
         <div className="card">
           <h3>25</h3>
@@ -17,24 +30,19 @@ function Dashboard() {
 
         <div className="card">
           <h3>8</h3>
-          <p>Applied</p>
+          <p>Placement Drives</p>
         </div>
 
         <div className="card">
-          <h3>2</h3>
-          <p>Interviews</p>
-        </div>
-
-        <div className="card">
-          <h3>1</h3>
-          <p>Offers</p>
+          <h3>52</h3>
+          <p>Selected Students</p>
         </div>
 
       </div>
 
       {/* Placement Drives */}
       <div className="section">
-        <h2>Latest Placement Drives</h2>
+        <h2>Upcoming Placement Drives</h2>
 
         <table>
           <thead>
@@ -42,7 +50,7 @@ function Dashboard() {
               <th>Company</th>
               <th>Role</th>
               <th>Package</th>
-              <th>Date</th>
+              <th>Drive Date</th>
             </tr>
           </thead>
 
@@ -63,25 +71,23 @@ function Dashboard() {
 
             <tr>
               <td>Accenture</td>
-              <td>ASE</td>
+              <td>Associate Software Engineer</td>
               <td>4.5 LPA</td>
               <td>25 Jul</td>
             </tr>
           </tbody>
-
         </table>
       </div>
 
-      {/* Student Profile */}
+      {/* Recent Registered Students */}
       <div className="section">
-        <h2>Student Profile</h2>
+        <h2>Recently Registered Students</h2>
 
         <p><strong>Name:</strong> John Doe</p>
         <p><strong>Branch:</strong> CSE</p>
         <p><strong>CGPA:</strong> 8.75</p>
         <p><strong>Email:</strong> john@gmail.com</p>
-        <p><strong>Resume:</strong> Uploaded ✅</p>
-
+        <p><strong>Status:</strong> Eligible ✅</p>
       </div>
 
       {/* Notifications */}
@@ -90,23 +96,21 @@ function Dashboard() {
 
         <ul>
           <li>TCS registration closes tomorrow.</li>
-          <li>Infosys interview on 22 July.</li>
-          <li>Update your resume before applying.</li>
+          <li>Infosys online assessment on 22 July.</li>
+          <li>Accenture eligibility list has been published.</li>
         </ul>
-
       </div>
 
       {/* Quick Actions */}
       <div className="section">
-
         <h2>Quick Actions</h2>
 
         <div className="button-group">
-          <button>Upload Resume</button>
-          <button>Apply Now</button>
-          <button>View Companies</button>
+          <button>Add Student</button>
+          <button>Add Company</button>
+          <button>Create Drive</button>
+          <button>View Reports</button>
         </div>
-
       </div>
 
     </div>

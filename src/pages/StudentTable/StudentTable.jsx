@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./StudentTable.css";
 
 function StudentTable() {
   const [students, setStudents] = useState([]);
@@ -11,45 +10,65 @@ function StudentTable() {
     setStudents(savedStudents);
   }, []);
 
+  const deleteStudent = (id) => {
+    const updatedStudents = students.filter(
+      (student) => student.id !== id
+    );
+
+    setStudents(updatedStudents);
+    localStorage.setItem(
+      "students",
+      JSON.stringify(updatedStudents)
+    );
+  };
+
   return (
     <div className="student-table-container">
-      <h1>Student Details</h1>
+      <h2>Registered Students</h2>
 
-      <table className="student-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Branch</th>
-            <th>CGPA</th>
-            <th>Action</th>
-          </tr>
-        </thead>
+      {students.length === 0 ? (
+        <h3>No students registered yet.</h3>
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Branch</th>
+              <th>CGPA</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          {students.length > 0 ? (
-            students.map((student) => (
+          <tbody>
+            {students.map((student) => (
               <tr key={student.id}>
                 <td>{student.id}</td>
                 <td>{student.name}</td>
+                <td>{student.email}</td>
+                <td>{student.phone}</td>
                 <td>{student.branch}</td>
                 <td>{student.cgpa}</td>
+
                 <td>
                   <Link to={`/student/${student.id}`}>
-                    <button className="view-btn">View</button>
+                    <button>View</button>
                   </Link>
+
+                  <button
+                    onClick={() => deleteStudent(student.id)}
+                    style={{ marginLeft: "10px" }}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="5" style={{ textAlign: "center" }}>
-                No students registered.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }

@@ -13,6 +13,9 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import StudentTable from "./pages/StudentTable/StudentTable";
 import StudentDetails from "./pages/StudentDetails/StudentDetails";
 import NotFound from "./pages/NotFound/NotFound";
+import AptitudeTest from "./pages/AptitudeTest/AptitudeTest";
+import MockInterview from "./pages/MockInterview/MockInterviews";
+
 
 function App() {
   return (
@@ -36,6 +39,8 @@ function App() {
 
         {/* 404 Page */}
         <Route path="*" element={<NotFound />} />
+        <Route path="aptitude-test" element={<AptitudeTest />} />
+        <Route path="mock-interview" element={<MockInterview />} />
       </Route>
     </Routes>
   );
